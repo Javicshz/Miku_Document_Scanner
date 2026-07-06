@@ -1,0 +1,17 @@
+ImageIO==2.37.3
+img2pdf==0.6.3
+imutils==0.5.4
+lazy-loader==0.5
+lxml==6.1.1
+networkx==3.6.1
+numpy==2.5.1
+opencv-python==5.0.0.93
+packaging==26.2
+pikepdf==10.9.1
+pillow==12.3.0
+pypdf==6.14.2
+pytesseract==0.3.13
+scikit-image==0.26.0
+scipy==1.18.0
+tifffile==2026.6.1
+wheel==0.47.0
