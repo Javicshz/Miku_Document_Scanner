@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from pathlib import Path
+import atexit
 import os
 import random
 import shutil
@@ -358,6 +359,14 @@ def close_app():
     stop_background_music()
     root.destroy()
 
+def handle_program_exit(signum=None, frame=None):
+    global app_is_closing
+
+    # stops the music if python is closed from the terminal or ide
+    app_is_closing = True
+    stop_background_music()
+    raise SystemExit(0)
+
 
 #tkinter root window
 root = tk.Tk()
@@ -365,6 +374,11 @@ root.title("Miku Document Scanner")
 root.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
 root.resizable(False, False)
 root.protocol("WM_DELETE_WINDOW", close_app)
+atexit.register(stop_background_music)
+signal.signal(signal.SIGINT, handle_program_exit)
+signal.signal(signal.SIGTERM, handle_program_exit)
+if hasattr(signal, "SIGHUP"):
+    signal.signal(signal.SIGHUP, handle_program_exit)
 
 # resizes it and makes it usable
 miku_image = Image.open(MIKU_IMAGE_PATH)
