@@ -5,6 +5,8 @@ This is a document scanner originally made by following the PyImageSearch tutori
 
 I later adapted it to include extra features like OCR, searchable PDF output, multiple image support and a simple Hatsune Miku themed GUI. The Miku design is mostly just for fun but the scanner still works like a normal document scanner.
 
+![Miku Doc Scanner](assets/screenshots/Miku_Doc_Scanner.png)
+
 ## Files
 
 The main files in this repo are:
